@@ -1,0 +1,28 @@
+<div class="container">
+    <mat-card appearance="outlined" class="login-card">
+    <img src="assets/img/logo.png" class="custom-image" alt="Logo">
+    <hr/>
+      <mat-card-header>
+        <mat-card-title>Iniciar Sesión</mat-card-title>
+      </mat-card-header>
+      <hr/>
+      <mat-card-content>
+          <div class="form">
+            <mat-form-field class="custom-form-field">
+              <mat-label>Ingrese su usuario</mat-label>
+              <input matInput type="text" #txtusuario>
+          </mat-form-field>
+  
+          <mat-form-field class="custom-form-field">
+              <mat-label>Ingrese su password</mat-label>
+              <input matInput type="password" #txtpassword>
+          </mat-form-field>
+          </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="submit(txtusuario, txtpassword)">INGRESAR</button>
+      </mat-card-actions>
+      <mat-card-footer>
+        <a href="/register" class="register-link">Registrarse</a>
+      </mat-card-footer>
+    </mat-card>
