@@ -42,4 +42,7 @@ export class DashboardComponent {
     irMantenimiento(): void{
       this.router.navigate(["mantenimiento"], {relativeTo: this.route});
     }
+    irCalcularIMC(): void{
+      this.router.navigate(["calcularIMC"], {relativeTo: this.route});
+    }
   }

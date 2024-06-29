@@ -12,11 +12,12 @@
     </div>
     
     <div class="button-imc">
-      <a mat-button (click)="irCalcularIMC()" extended routerLink="">
+      <a mat-button extended [routerLink]="['/dashboard/calcularIMC']">
         <mat-icon>calculate</mat-icon>
         Calcula aquí tu IMC
       </a>
     </div>
+    
 
   <h2>Noticias interesantes</h2>
   <div class="noticias">
