@@ -1,1 +1,29 @@
-<p>asdasdasdasd</p>
+<div class="container">
+    <mat-card appearance="outlined" class="login-card">
+    <hr/>
+    <mat-card-header class="mat-card-header">
+      <mat-card-title class="mat-card-title">Calcular tu IMC</mat-card-title>
+  </mat-card-header>
+      <hr/>
+      <img src="assets/img/imc.gif" alt="Gif descriptivo" class="gif-clase" />
+      <mat-card-content>
+          <div class="form">
+            <mat-form-field class="custom-form-field">
+              <mat-label>Altura (cm)</mat-label>
+              <input matInput type="number" #txtaltura>
+          </mat-form-field>
+        <p></p>
+          <mat-form-field class="custom-form-field">
+              <mat-label>Peso (kg)</mat-label>
+              <input matInput type="number" #txtpeso>
+          </mat-form-field>
+
+          <section>
+            <div class="example-button-row">
+              <button mat-raised-button (click)="calcularImc(txtaltura, txtpeso)">Calcular</button>
+            </div>
+          </section>
+
+          </div>
+      </mat-card-content>
+    </mat-card>
