@@ -14,7 +14,6 @@
     <span class="example-spacer"></span>
 
     <button mat-icon-button
-    (click)="irMantenimiento()"
      class="example-icon" aria-label="Example icon-button with share icon">
       <mat-icon>settings</mat-icon>
     </button>
@@ -24,40 +23,5 @@
       <mat-icon>logout</mat-icon>
     </button>
   </mat-toolbar>
-
-  <div class="container">
-    <h1>Bienvenido a CherryBite!</h1>
-    <div class="welcome-section">
-      <div class="text-content">
-        <p>Bienvenido a CherryBite, tu guía personalizada hacia un estilo de vida saludable y equilibrado.</p>
-        <p>Nuestro objetivo es ayudarte a desarrollar una relación positiva con la comida, proporcionándote recursos prácticos y conocimientos fundamentales sobre nutrición.</p>
-        <p>Únete a nuestra comunidad comprometida en transformar hábitos negativos en hábitos saludables que perduren para toda la vida.</p>
-      </div>
-      <div class="logo-container">
-        <img src="assets/img/logo.png" class="custom-image-center" alt="Logo">
-      </div>
-    </div>
-    
-    <div class="button-imc">
-      <a mat-button extended routerLink=".">
-        <mat-icon>calculate</mat-icon>
-        Calcula aquí tu IMC
-      </a>
-    </div>
-
-  <h2>Noticias interesantes</h2>
-  <div class="noticias">
-    <img src="https://via.placeholder.com/150" class="noticia-image" alt="Noticia 1">
-    <img src="https://via.placeholder.com/150" class="noticia-image" alt="Noticia 2">
-    <img src="https://via.placeholder.com/150" class="noticia-image" alt="Noticia 3">
-    <img src="https://via.placeholder.com/150" class="noticia-image" alt="Noticia 4">
-  </div>
-</div>
-
-<a href="https://chat.whatsapp.com/CHlG54lzSVs4X6XhE3oNi5" target="_blank" class="whatsapp-link">
-  <button mat-icon-button class="example-icon" aria-label="WhatsApp link button">
-    <mat-icon>chat</mat-icon>
-  </button>
-</a>
 
   <router-outlet></router-outlet>
