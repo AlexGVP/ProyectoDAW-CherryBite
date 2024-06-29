@@ -22,9 +22,7 @@ export const routes: Routes = [
                 redirectTo: "home",
                 pathMatch: "full"
             },
-            {
-                path: "home", component: HomeComponent,
-            },
+            { path: "home", component: HomeComponent },
             { path: "registrarComidas", component: RegistrarComidasComponent },
             { path: "consultarComidas", component: ConsultarComidasComponent },
             { path: "registrarHabitos", component: RegistrarHabitosComponent },
