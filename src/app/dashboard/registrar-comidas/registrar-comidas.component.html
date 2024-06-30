@@ -1,1 +1,23 @@
-<p>registrar-comidas works!</p>
+<div class="container">
+    <mat-card appearance="outlined" class="login-card">
+    <hr/>
+    <mat-card-header class="mat-card-header">
+      <mat-card-title class="mat-card-title">Registrar comidas</mat-card-title>
+  </mat-card-header>
+      <hr/>
+      <img src="assets/img/food.gif" alt="Gif descriptivo" class="gif-clase" />
+      <mat-card-content>
+          <div class="form">
+            <mat-form-field class="custom-form-field">
+              <mat-label>Ingresar alimento</mat-label>
+              <input matInput type="text" #txtalimento>
+          </mat-form-field>
+
+          <section>
+            <div class="example-button-row">
+              <button mat-raised-button>Registrar comida</button>
+            </div>
+          </section>
+          </div>
+      </mat-card-content>
+    </mat-card>
