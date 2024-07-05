@@ -1,19 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MaterialModule } from '../../angular-amaterial/material/material.module';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Alimento } from './alimento';
 import { AlimentoService } from './alimento.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-alimento',
   standalone: true,
   imports: [MaterialModule],
   templateUrl: './alimento.component.html',
-  styleUrls: ['./alimento.component.css']
+  styleUrl: './alimento.component.css'
 })
-
 export class AlimentoComponent {
-  displayedColumns: string[] = ['idalimento', 'nombre', 'porcion', 'descripcionGrupoAlimento'];
+  displayedColumns: string[] = ['id', 'userId', 'title', 'body'];
   alimento: Alimento[] = []
 
   constructor(private alimentoService: AlimentoService,
