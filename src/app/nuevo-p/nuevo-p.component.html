@@ -1,0 +1,72 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <mat-card appearance="outlined" class="register-card">
+            <img src="assets/img/logo.png" class="custom-image" alt="Logo">
+            <hr/>
+            <mat-card-header>
+              <mat-card-title>Registrate</mat-card-title>
+            </mat-card-header>
+            <hr/>
+            <mat-card-content>
+              <form (ngSubmit)="registrar()">
+                <div class="form" *ngIf="currentSection === 1">
+                  <mat-form-field class="custom-form-field">
+                    <mat-label>Nombres</mat-label>
+                    <input matInput type="text" required name="names" [(ngModel)]="ousuario.names">
+                  </mat-form-field>
+                  <mat-form-field class="custom-form-field">
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput type="text" required name="lastname1" [(ngModel)]="ousuario.lastname1">
+                  </mat-form-field>
+                  <mat-form-field class="custom-form-field">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" required name="email" [(ngModel)]="ousuario.email">
+                  </mat-form-field>
+                  <button mat-raised-button color="primary" (click)="nextSection()">Siguiente</button>
+                </div>
+                <div class="form" *ngIf="currentSection === 2">
+                  <mat-form-field class="custom-form-field">
+                    <mat-label>Telefono</mat-label>
+                    <input matInput type="tel" required name="phone" [(ngModel)]="ousuario.phone">
+                  </mat-form-field>
+                  <mat-form-field class="custom-form-field">
+                    <mat-label>Seleccione tipo documento</mat-label>
+                    <mat-select name="idtpodoc" [(ngModel)]="ousuario.idtpodoc">
+                      <mat-option value="0">--Seleccione--</mat-option>
+                      <mat-option *ngFor="let tipodocumento of tipodocumentos" [value]="tipodocumento.idTypeDoc">
+                        {{ tipodocumento.desc }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field class="custom-form-field">
+                    <mat-label>Numero documento</mat-label>
+                    <input matInput type="number" name="nrodoc" [(ngModel)]="ousuario.nrodoc">
+                  </mat-form-field>
+                  <mat-form-field class="custom-form-field">
+                    <mat-label>Ingrese Usuario</mat-label>
+                    <input matInput type="text" name="user" [(ngModel)]="ousuario.user">
+                  </mat-form-field>
+                  <mat-form-field class="custom-form-field">
+                    <mat-label>Ingrese contraseña</mat-label>
+                    <input matInput type="password" name="password" [(ngModel)]="ousuario.password">
+                  </mat-form-field>
+                  <mat-form-field class="custom-form-field">
+                    <mat-label>Repita su contraseña</mat-label>
+                    <input matInput type="password" name="password1" [(ngModel)]="ousuario.password1">
+                  </mat-form-field>
+                  <div class="actions">
+                    <button mat-raised-button color="warn" (click)="prevSection()">Anterior</button>
+                    <button mat-raised-button color="warn" (click)="regresar()">Regresar</button>
+                    <button mat-raised-button color="primary" type="submit">Registrar</button>
+                  </div>
+                </div>
+              </form>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </section>
+  
