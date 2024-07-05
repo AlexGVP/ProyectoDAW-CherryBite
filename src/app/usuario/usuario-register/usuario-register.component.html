@@ -1,0 +1,161 @@
+<section class="vh-80 gradient-custom">
+  <div class="container py-4 h-500">
+    <div class="row d-flex justify-content-center align-items-center h-50">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div
+          class="card bg-light text-dark"
+          style="border-radius: 1rem; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)"
+        >
+          <div class="card-body p-5 text-center">
+            <img
+              src="assets/img/hotelPremier.png"
+              alt="Logo de Hotel Premier"
+              class="mb-4"
+              style="max-width: 200px"
+            />
+
+            <h3 class="text-center mb-4">Registrate</h3>
+
+            <form (ngSubmit)="registrar()">
+              <div class="section" *ngIf="currentSection === 1">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Nombre</label>
+                    <input
+                      type="text"
+                      required
+                      name="names"
+                      [(ngModel)]="ousuario.names"
+                      class="form-control"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label>Apellido Paterno</label>
+                    <input
+                      type="text"
+                      required
+                      name="lastname1"
+                      [(ngModel)]="ousuario.lastname1"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Apellido Materno</label>
+                    <input
+                      type="text"
+                      required
+                      name="lastname2"
+                      [(ngModel)]="ousuario.lastname2"
+                      class="form-control"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label>Email</label>
+                    <input
+                      type="email"
+                      required
+                      name="email"
+                      [(ngModel)]="ousuario.email"
+                      class="form-control"
+                    />
+                  </div>
+                  &nbsp;
+                  <button class="btn btn-primary" (click)="nextSection()">
+                    Siguiente
+                  </button>
+                </div>
+              </div>
+              <div class="section" *ngIf="currentSection === 2">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Telefono</label>
+                    <input
+                      type="tel"
+                      required
+                      [(ngModel)]="ousuario.phone"
+                      name="phone"
+                      class="form-control"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label>Seleccione tipo documento</label>
+                    <select
+                      class="form-control"
+                      name="idtpodoc"
+                      [(ngModel)]="ousuario.idtpodoc"
+                    >
+                      <option value="0">--Seleccione--</option>
+                      <option value="0">DNI</option>
+                      <option
+                        *ngFor="let tipodocumento of tipodocumentos"
+                        [value]="tipodocumento.idTypeDoc"
+                      >
+                        {{ tipodocumento.desc }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Numero documento</label>
+                    <input
+                      type="number"
+                      name="nrodoc"
+                      class="form-control"
+                      [(ngModel)]="ousuario.nrodoc"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label>Ingrese Usuario</label>
+                    <input
+                      type="text"
+                      name="user"
+                      class="form-control"
+                      [(ngModel)]="ousuario.user"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Ingrese contraseña</label>
+                    <input
+                      type="password"
+                      name="password"
+                      class="form-control"
+                      [(ngModel)]="ousuario.password"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label>Repita su contraseña</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      name="password1"
+                      [(ngModel)]="ousuario.password1"
+                    />
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <button class="btn btn-secondary" (click)="prevSection()">
+                    Anterior
+                  </button>
+                  &nbsp;
+
+                  <button class="btn btn-danger" (click)="regresar()">
+                    Regresar
+                  </button>
+                  &nbsp;
+                  <button class="btn btn-primary" type="submit">
+                    Registrar
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
