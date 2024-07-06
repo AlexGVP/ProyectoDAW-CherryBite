@@ -50,7 +50,9 @@ export class RegistrarComidasComponent implements OnInit {
       const detalleAlimento: DetalleAlimento = this.detalleForm.value;
       this.alimentoService.postDetalleAlimento(detalleAlimento).subscribe((response) => {
         console.log('DetalleAlimento registrado:', response);
+        alert('DetalleAlimento registrado correctamente.');
       }, (error) => {
+        alert('Error al registrar DetalleAlimento');
         console.error('Error al registrar DetalleAlimento:', error);
       });
     }
