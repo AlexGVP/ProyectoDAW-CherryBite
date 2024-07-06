@@ -10,7 +10,7 @@ import { RegistrarHabitosComponent } from './dashboard/registrar-habitos/registr
 import { DatosComponent } from './dashboard/datos/datos.component';
 import { NoticiasComponent } from './dashboard/noticias/noticias.component';
 import { MantenimientoComponent } from './dashboard/mantenimiento/mantenimiento.component';
-import { AlimentoComponent } from './dashboard/alimento/alimento.component';
+import { RegistrarComidasComponent } from './dashboard/registrar-comidas/registrar-comidas.component';
 
 export const routes: Routes = [
     {path: "login", component: LoginComponent},
@@ -23,7 +23,7 @@ export const routes: Routes = [
                 pathMatch: "full"
             },
             { path: "home", component: HomeComponent },
-            { path: "alimento", component: AlimentoComponent },
+            { path: "registrarComidas", component: RegistrarComidasComponent },
             { path: "consultarComidas", component: ConsultarComidasComponent },
             { path: "registrarHabitos", component: RegistrarHabitosComponent },
             { path: "datos", component: DatosComponent },
@@ -33,5 +33,5 @@ export const routes: Routes = [
         ]
     },
     {path: "", redirectTo: "login", pathMatch: "full"},
-    {path: "**", component: PageNotFoundComponent}
+    {path: "", component: PageNotFoundComponent}
 ];

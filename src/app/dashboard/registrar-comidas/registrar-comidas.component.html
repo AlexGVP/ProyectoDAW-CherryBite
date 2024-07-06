@@ -12,30 +12,27 @@
               <mat-label>Ingresar alimento</mat-label>
               <input matInput type="text" #txtalimento>
           </mat-form-field>
-
           <section>
             <div class="example-button-row">
               <button mat-raised-button>Registrar comida</button>
             </div>
           </section>
-
           <p>
-
-            <table mat-table [dataSource]="alimento" class="mat-elevation-z8">
+            <table mat-table [dataSource]="alimentos" class="mat-elevation-z8">
               <ng-container matColumnDef="idalimento">
                 <th mat-header-cell *matHeaderCellDef> ID </th>
                 <td mat-cell *matCellDef="let element"> {{element.idalimento}} </td>
               </ng-container>
               <ng-container matColumnDef="nombre">
-                <th mat-header-cell *matHeaderCellDef> UserID </th>
+                <th mat-header-cell *matHeaderCellDef> Nombre </th>
                 <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
               </ng-container>
               <ng-container matColumnDef="porcion">
-                <th mat-header-cell *matHeaderCellDef> Title </th>
+                <th mat-header-cell *matHeaderCellDef> Porcion </th>
                 <td mat-cell *matCellDef="let element"> {{element.porcion}} </td>
               </ng-container>
               <ng-container matColumnDef="descripcionGrupoAlimento">
-                <th mat-header-cell *matHeaderCellDef> Body </th>
+                <th mat-header-cell *matHeaderCellDef> Descripcion </th>
                 <td mat-cell *matCellDef="let element"> {{element.descripcionGrupoAlimento}} </td>
               </ng-container>
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

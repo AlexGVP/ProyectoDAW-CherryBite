@@ -25,7 +25,7 @@ export class DashboardComponent {
       this.router.navigate(["home"], {relativeTo: this.route});
     }
     irRegistrarComidas(): void{
-      this.router.navigate(["alimento"], {relativeTo: this.route});
+      this.router.navigate(["registrarComidas"], {relativeTo: this.route});
     }
     irConsultarComidas(): void{
       this.router.navigate(["consultarComidas"], {relativeTo: this.route});
