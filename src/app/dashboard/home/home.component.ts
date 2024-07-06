@@ -4,7 +4,9 @@ import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { Noticia } from '../noticias/noticia';
 import { NoticiasService } from '../noticias/noticias.service';
+import { DatosService } from '../datos/datos.service';
 import { CommonModule } from '@angular/common';
+import { Dato } from '../datos/dato';
 
 @Component({
   selector: 'app-home',
@@ -15,12 +17,15 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent implements OnInit{
 
-  noticias: Noticia[] = [];
+  noticia: Noticia[] = [];
+
+  dato: Dato[] = [];
 
   constructor(private router: Router,
     private route: ActivatedRoute,
     private authService: AuthService,
-    private noticiasService: NoticiasService
+    private noticiasService: NoticiasService,
+    private datosService: DatosService
   ){
     }
     irCalcularIMC(): void{
@@ -29,7 +34,11 @@ export class HomeComponent implements OnInit{
 
     ngOnInit(): void {
       this.noticiasService.getAllNoticia().subscribe((data) => {
-        this.noticias = data.slice(0, 4); // Obtener las primeras 4 noticias
+        this.noticia = data.slice(0, 4);
+      });
+
+      this.datosService.getAllDato().subscribe((data) => {
+        this.dato = data.slice(0, 4);
       });
     }
 }

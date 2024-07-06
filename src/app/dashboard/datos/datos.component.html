@@ -1,1 +1,17 @@
-<p>datos works!</p>
+<h1 class="titulo-datos">Datos</h1>
+
+<div class="card-container">
+  <div *ngFor="let element of dato" class="carta">
+    <mat-card appearance="outlined" class="mat-card">
+      <mat-card-content>
+        <div class="carta-imagen">
+          <img [src]="element.imagen" alt="Imagen">
+        </div>
+        <div class="carta-texto">
+          <h2 class="carta-titulo">{{ element.titulo }}</h2>
+          <p class="carta-descripcion">{{ element.descripcion }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
