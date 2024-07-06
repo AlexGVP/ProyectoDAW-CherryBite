@@ -19,14 +19,16 @@ export class RegistrarComidasComponent implements OnInit {
   alimentos: Alimento[] = [];
   detalleForm: FormGroup;
 
+
   constructor(
     private alimentoService: AlimentoService,
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder
   ) {
+    const userId = Number(sessionStorage.getItem("idusuario"));
     this.detalleForm = this.fb.group({
-      idusuario: ['', Validators.required],
+      idusuario: [userId, Validators.required],
       idalimento: ['', Validators.required],
       cantidad: ['', Validators.required]
     });

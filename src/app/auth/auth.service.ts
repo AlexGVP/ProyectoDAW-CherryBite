@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { tap } from 'rxjs/operators';
 interface LoginResponse {
   idusuario: number;
   nomusuario: string;
@@ -21,8 +22,16 @@ export class AuthService {
     const formData = new FormData();
     formData.append('usuario', usuario);
     formData.append('password', password);
-    return this.http.post<LoginResponse>(this.loginUrl, formData);
+    return this.http.post<LoginResponse>(this.loginUrl, formData).pipe(
+      tap(response => {
+        sessionStorage.setItem('idusuario', response.idusuario.toString());
+        sessionStorage.setItem('token', response.token);
+        sessionStorage.setItem('isLogged', 'true');
+      })
+    );
   }
+
+  
 
   logout():void{
     sessionStorage.clear()    
