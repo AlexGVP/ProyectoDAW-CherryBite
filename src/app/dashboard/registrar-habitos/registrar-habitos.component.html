@@ -18,6 +18,28 @@
               <button mat-raised-button>Registrar habito</button>
             </div>
           </section>
+          <p>
+            <table mat-table [dataSource]="habitos" class="mat-elevation-z8">
+              <ng-container matColumnDef="idhabito">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.idhabito}} </td>
+              </ng-container>
+              <ng-container matColumnDef="descripcionhabito">
+                <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+                <td mat-cell *matCellDef="let element"> {{element.descripcionhabito}} </td>
+              </ng-container>
+              <ng-container matColumnDef="progreso">
+                <th mat-header-cell *matHeaderCellDef> Progreso </th>
+                <td mat-cell *matCellDef="let element"> {{element.progreso}} </td>
+              </ng-container>
+              <ng-container matColumnDef="frecuencia">
+                <th mat-header-cell *matHeaderCellDef> frecuencia </th>
+                <td mat-cell *matCellDef="let element"> {{element.frecuencia}} </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            
           </div>
       </mat-card-content>
     </mat-card>
