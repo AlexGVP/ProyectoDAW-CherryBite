@@ -20,7 +20,6 @@ enum FormType{
 })
 export class MantenimientoComponent {
   FormType = FormType;
-
   mantenimientoId: string | null = ''
   mantenimientoForm!: FormGroup
   formType!: FormType
@@ -62,7 +61,8 @@ export class MantenimientoComponent {
   }
   
   cargarUsuario(mantenimientoid:number): void{
-    this.mantenimientoService.buscarusuarioPorId(mantenimientoid)
+    const userId = Number(sessionStorage.getItem("idusuario"));
+    this.mantenimientoService.buscarusuarioPorId(userId)
     .subscribe(
       (data) => {
         console.log(data)
@@ -96,7 +96,8 @@ export class MantenimientoComponent {
 
   actualizarUsuario(): void {
     if (this.mantenimientoForm.valid) {
-      const usuario: Usuario = { idusuario: this.mantenimientoId, ...this.mantenimientoForm.getRawValue() };
+      const userId = Number(sessionStorage.getItem("idusuario"));
+      const usuario: Usuario = { idusuario: userId, ...this.mantenimientoForm.getRawValue() };
       this.mantenimientoService.actualizarUsuario(usuario).subscribe(
         data => {
           this.route.navigate(['/usuario']);
