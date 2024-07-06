@@ -24,7 +24,6 @@ export class MantenimientoComponent {
   mantenimientoId: string | null = ''
   mantenimientoForm!: FormGroup
   formType!: FormType
-  formTitulo!: string
 
   constructor(
     private router: ActivatedRoute,
@@ -37,14 +36,8 @@ export class MantenimientoComponent {
     this.mantenimientoId = this.router.snapshot.paramMap.get('id');
     this.mantenimientoForm = this.formulario();
     if (this.mantenimientoId !== 'nuevo') {
-      this.formTitulo = "EDITAR USUARIO";
       this.formType = FormType.Actualizar;
       this.cargarUsuario(Number(this.mantenimientoId));
-      this.mantenimientoForm.removeControl('password'); // Elimina el campo password para la edición
-    } else {
-      this.formTitulo = "NUEVO USUARIO";
-      this.formType = FormType.Crear;
-      this.mantenimientoForm.get('nomusuario')?.enable(); // Habilita el campo para la creación
     }
   }
 
@@ -55,9 +48,6 @@ export class MantenimientoComponent {
       nombres: new FormControl('', Validators.required),
       apellidos: new FormControl('', Validators.required),
     });
-    if (this.router.snapshot.paramMap.get('id') === 'nuevo') {
-      formGroup.addControl('password', new FormControl(''));
-    }
     return formGroup;
   }
   
@@ -96,7 +86,7 @@ export class MantenimientoComponent {
 
   actualizarUsuario(): void {
     if (this.mantenimientoForm.valid) {
-      const usuario: Usuario = { idusuario: this.mantenimientoId, ...this.mantenimientoForm.getRawValue() };
+      const usuario: Usuario = { idusuario: Number(this.mantenimientoId), ...this.mantenimientoForm.getRawValue() };
       this.mantenimientoService.actualizarUsuario(usuario).subscribe(
         data => {
           this.route.navigate(['/usuario']);
@@ -105,7 +95,6 @@ export class MantenimientoComponent {
         error => {
           console.error('Error al actualizar usuario:', error);
           this.snackBar.open('Ocurrió un error al actualizar el usuario', 'Cerrar', { duration: 3000, panelClass: ['error-snackbar'] });
-
         }
       );
     }
