@@ -11,9 +11,11 @@ import { DatosComponent } from './dashboard/datos/datos.component';
 import { NoticiasComponent } from './dashboard/noticias/noticias.component';
 import { MantenimientoComponent } from './dashboard/mantenimiento/mantenimiento.component';
 import { RegistrarComidasComponent } from './dashboard/registrar-comidas/registrar-comidas.component';
+import { RegistroComponent } from './auth/registro/registro.component';
 
 export const routes: Routes = [
     {path: "login", component: LoginComponent},
+    {path: "register", component:RegistroComponent},
     {path: "dashboard", component: DashboardComponent,
         canActivate: [authGuard],
         children: [
