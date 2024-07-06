@@ -1,6 +1,6 @@
 export interface Habito {
     idhabito: number;
-    descripcionhabito: string;
+    descripcion: string;
     frecuencia: string;
     progreso: number;
     

@@ -12,7 +12,7 @@ import { HabitoService } from './registrar-habitos.service';
   styleUrl: './registrar-habitos.component.css'
 })
 export class RegistrarHabitosComponent {
-  displayedColumns: string[] = ['idhabito', 'descripcionhabito', 'frecuencia', 'progreso'];
+  displayedColumns: string[] = ['idhabito', 'descripcion', 'frecuencia', 'progreso'];
   habitos : Habito[] = []
 
   constructor(private habitoService:HabitoService,){}
