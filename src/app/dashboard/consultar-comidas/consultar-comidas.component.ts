@@ -19,11 +19,11 @@ export class ConsultarComidasComponent implements OnInit{
   constructor(private consultarService: ConsultarAlimentosService,){}
 
   ngOnInit(): void {
+    const userId = Number(sessionStorage.getItem("idusuario"));
     this.consultarService.getAllDato().pipe(
-      map((data: ConsultarAlimentor[]) => data.filter(item => Number(item.idusuarioUsuario) === 1))
+      map((data: ConsultarAlimentor[]) => data.filter(item => Number(item.idusuarioUsuario) === userId))
     ).subscribe((filteredData) => {
       this.consultar = filteredData;
     });
-  }
-  
+  }  
 }
