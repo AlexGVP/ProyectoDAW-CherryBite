@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../../angular-amaterial/material/material.module';
@@ -13,10 +13,11 @@ import { MaterialModule } from '../../angular-amaterial/material/material.module
 })
 export class LoginComponent {
 
-  constructor(
-    private router: Router,
+  constructor(private router: Router,
+    private route: ActivatedRoute,
     private authService: AuthService
-  ) { }
+  ){
+    }
   
   navigateToHome(event: Event): void {
     event.preventDefault();
@@ -34,5 +35,9 @@ export class LoginComponent {
         alert(err.error.message);
       }
     });
+  }
+
+  irRegistrarse(): void{
+    this.router.navigate(["register"]);
   }
 }

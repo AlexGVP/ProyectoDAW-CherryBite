@@ -23,6 +23,8 @@
         <button mat-raised-button (click)="submit(txtusuario, txtpassword)">INGRESAR</button>
       </mat-card-actions>
       <mat-card-footer>
-        <a href="/register" class="register-link">Registrarse</a>
+        <button mat-button (click)="irRegistrarse()">Registrarse</button>
       </mat-card-footer>
     </mat-card>
+    
+  <router-outlet></router-outlet>
