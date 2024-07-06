@@ -10,21 +10,22 @@
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: auto;
+    padding: 20px;
 }
 
 .login-card {
-    max-width: 400px;
+    max-width: 1000px;
     width: 100%;
     border: none;
-    text-align: center;
 }
 
 .card-content {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .gif-clase {
@@ -37,6 +38,18 @@
     margin-bottom: 15px;
 }
 
+.form {
+    flex: 1;
+    margin-right: 40px;
+    max-width: 400px;
+}
+
+.table-wrapper {
+    flex: 2;
+    overflow-x: auto;
+    min-width: 300px;
+}
+
 .example-button-row {
-    margin-top: 20px;
+    text-align: center;
 }

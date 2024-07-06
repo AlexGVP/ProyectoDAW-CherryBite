@@ -1,43 +1,57 @@
 <div class="container">
-    <mat-card appearance="outlined" class="login-card">
-    <hr/>
+  <mat-card appearance="outlined" class="login-card">
+    <hr />
     <mat-card-header class="mat-card-header">
       <mat-card-title class="mat-card-title">Registrar comidas</mat-card-title>
-  </mat-card-header>
-      <hr/>
-      <img src="assets/img/food.gif" alt="Gif descriptivo" class="gif-clase" />
-      <mat-card-content>
-          <div class="form">
-            <mat-form-field class="custom-form-field">
-              <mat-label>Ingresar alimento</mat-label>
-              <input matInput type="text" #txtalimento>
+    </mat-card-header>
+    <hr />
+    <img src="assets/img/food.gif" alt="Gif descriptivo" class="gif-clase" />
+    <mat-card-content class="card-content">
+      <div class="form">
+        <form [formGroup]="detalleForm" (ngSubmit)="registrarDetalleAlimento()">
+          <mat-form-field class="custom-form-field">
+            <mat-label>ID Usuario</mat-label>
+            <input matInput formControlName="idusuario" type="number" required>
+          </mat-form-field>
+          <mat-form-field class="custom-form-field">
+            <mat-label>ID Alimento</mat-label>
+            <input matInput formControlName="idalimento" type="number" required>
+          </mat-form-field>
+          <mat-form-field class="custom-form-field">
+            <mat-label>Cantidad</mat-label>
+            <input matInput formControlName="cantidad" type="number" required>
           </mat-form-field>
           <section>
             <div class="example-button-row">
-              <button mat-raised-button>Registrar comida</button>
+              <button mat-raised-button type="submit" [disabled]="!detalleForm.valid">Registrar comida</button>
             </div>
           </section>
-          <p>
-            <table mat-table [dataSource]="alimentos" class="mat-elevation-z8">
-              <ng-container matColumnDef="idalimento">
-                <th mat-header-cell *matHeaderCellDef> ID </th>
-                <td mat-cell *matCellDef="let element"> {{element.idalimento}} </td>
-              </ng-container>
-              <ng-container matColumnDef="nombre">
-                <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-              </ng-container>
-              <ng-container matColumnDef="porcion">
-                <th mat-header-cell *matHeaderCellDef> Porcion </th>
-                <td mat-cell *matCellDef="let element"> {{element.porcion}} </td>
-              </ng-container>
-              <ng-container matColumnDef="descripcionGrupoAlimento">
-                <th mat-header-cell *matHeaderCellDef> Descripcion </th>
-                <td mat-cell *matCellDef="let element"> {{element.descripcionGrupoAlimento}} </td>
-              </ng-container>
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-          </div>
-      </mat-card-content>
-    </mat-card>
+        </form>
+      </div>
+      <div class="table-wrapper">
+        <table mat-table [dataSource]="alimentos" class="mat-elevation-z8">
+          <ng-container matColumnDef="idalimento">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element" (click)="seleccionarAlimento(element.idalimento)">
+              {{element.idalimento}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+          </ng-container>
+          <ng-container matColumnDef="porcion">
+            <th mat-header-cell *matHeaderCellDef> Porción </th>
+            <td mat-cell *matCellDef="let element"> {{element.porcion}} </td>
+          </ng-container>
+          <ng-container matColumnDef="descripcionGrupoAlimento">
+            <th mat-header-cell *matHeaderCellDef> Descripción </th>
+            <td mat-cell *matCellDef="let element"> {{element.descripcionGrupoAlimento}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

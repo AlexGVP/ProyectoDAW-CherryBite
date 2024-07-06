@@ -23,4 +23,5 @@ export class DatosComponent implements OnInit{
       this.dato = data;
     });
   }
+  
 }

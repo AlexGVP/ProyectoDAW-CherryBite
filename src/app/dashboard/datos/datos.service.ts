@@ -17,7 +17,6 @@ export class DatosService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-
     return this.httpClient.get<Dato[]>(this.urlApi, { headers });
   }
 }
