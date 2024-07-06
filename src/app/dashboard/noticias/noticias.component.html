@@ -1,1 +1,18 @@
-<p>noticias works!</p>
+<h1 class="titulo-noticias">Últimas Noticias</h1>
+
+<div class="card-container">
+  <div *ngFor="let element of noticia" class="carta">
+    <mat-card appearance="outlined" class="mat-card">
+      <mat-card-content>
+        <div class="carta-imagen">
+          <img [src]="element.imagen" alt="Imagen">
+        </div>
+        <div class="carta-texto">
+          <h2 class="carta-titulo">{{ element.titulo }}</h2>
+          <p class="carta-descripcion">{{ element.descripcion }}</p>
+          <p class="carta-fecha">{{ element.fecha | date:'dd \'de\' MMMM \'de\' yyyy' }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
