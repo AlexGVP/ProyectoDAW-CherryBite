@@ -24,16 +24,16 @@ export class MantenimientoService {
     return this.http.get<Usuario>(this.urlApi+"/"+id, {headers});
   }
 
+  nuevoUsuario(usuario: Usuario):Observable<any>{
+    const token = sessionStorage.getItem('token');
+    const headers = token ? new HttpHeaders().set('Authorization', `Bearer ${token}`) : undefined;
+    return this.http.post<Usuario>(this.urlApi, usuario, { headers });
+  }
+
   actualizarUsuario(usuario: Usuario):Observable<any>{
     const token = sessionStorage.getItem('token');
     const headers = token ? new HttpHeaders().set('Authorization', `Bearer ${token}`) : undefined;
     console.log(usuario)
     return this.http.put<Usuario>(this.urlApi +"/"+ usuario.idusuario , usuario, { headers })
-  }
-
-  nuevoUsuario(usuario: Usuario):Observable<any>{
-    const token = sessionStorage.getItem('token');
-    const headers = token ? new HttpHeaders().set('Authorization', `Bearer ${token}`) : undefined;
-    return this.http.post<Usuario>(this.urlApi, usuario, { headers });
   }
 }
